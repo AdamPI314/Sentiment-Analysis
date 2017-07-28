@@ -1,4 +1,9 @@
 #!/bin/sh
+
+hadoop com.sun.tools.javac.Main SentimentAnalysis.java
+
+jar cf SentimentAnalysis.jar *.class
+
 if $(hadoop fs -test -d /output) ;
 then
   echo "/output found, delete!"; 
