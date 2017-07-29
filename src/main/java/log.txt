@@ -1,0 +1,3 @@
+/tmp/emotionCategory.txt directory not found.
+/input directory not found.
+/output directory not found.
