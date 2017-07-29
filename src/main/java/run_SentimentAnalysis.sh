@@ -13,17 +13,17 @@ then
   hdfs dfs -rm /tmp/emotionCategory.txt > /dev/null 2>&1
 else 
   echo "/tmp/emotionCategory.txt directory not found."; 
-  hdfs dfs -put ~/src/Sentiment-Analysis/src/main/resources/emotionCategory.txt /tmp > /dev/null 2>&1
 fi
+hdfs dfs -put ~/src/Sentiment-Analysis/src/main/resources/emotionCategory.txt /tmp > /dev/null 2>&1
 
 if $(hadoop fs -test -d /input) ;
 then
   echo "/input found, delete!"; 
   hdfs dfs -rm -r /input > /dev/null 2>&1
 else 
-  hdfs dfs -put ~/src/Sentiment-Analysis/src/main/resources/input / > /dev/null 2>&1
   echo "/input directory not found."; 
 fi
+hdfs dfs -put ~/src/Sentiment-Analysis/src/main/resources/input / > /dev/null 2>&1
 
 if $(hadoop fs -test -d /output) ;
 then
