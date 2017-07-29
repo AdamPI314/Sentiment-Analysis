@@ -1,9 +1,9 @@
 #!/bin/sh
 
-rm *.class 1>/dev/null 2>&1
+rm -f *.class 1>/dev/null 2>&1
 hadoop com.sun.tools.javac.Main SentimentAnalysis.java 1>stdout.txt 2>stderr.txt
 
-rm SentimentAnalysis.jar 1>/dev/null 2>&1
+rm -f SentimentAnalysis.jar 1>/dev/null 2>&1
 jar cf SentimentAnalysis.jar *.class 1>>stdout.txt 2>>stderr.txt
 
 
@@ -32,6 +32,5 @@ then
 else 
   echo "/output directory not found."; 
 fi
-
 
 hadoop jar SentimentAnalysis.jar SentimentAnalysis /input /output /tmp/emotionCategory.txt
