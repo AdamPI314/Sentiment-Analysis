@@ -34,4 +34,4 @@ else
 fi
 
 
-hadoop jar SentimentAnalysis.jar SentimentAnalysis /input /output /tmp/emotionCategory.txt 1>>stdout.txt 2>>stderr.txt
+hadoop jar SentimentAnalysis.jar SentimentAnalysis /input /output /tmp/emotionCategory.txt

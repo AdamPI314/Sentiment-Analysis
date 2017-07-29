@@ -21,7 +21,7 @@ public class SentimentAnalysis {
         public Map<String, String> emotionLibrary = new HashMap<String, String>();
 
         @Override
-        protected void setup(Context context) throws IOException, InterruptedException {
+        public void setup(Context context) throws IOException, InterruptedException {
             super.setup(context);
             // read in (word, sentiment) pair
             Configuration configuration = context.getConfiguration();
@@ -41,7 +41,7 @@ public class SentimentAnalysis {
         }
 
         @Override
-        protected void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             super.map(key, value, context);
             String[] words = value.toString().trim().split("\\s+");
             for (String word : words) {
@@ -53,7 +53,7 @@ public class SentimentAnalysis {
 
     public static class SentimentCollect extends Reducer<Text, IntWritable, Text, IntWritable> {
         @Override
-        protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
             super.reduce(key, values, context);
             int sum = 0;
             for (IntWritable v : values) {
